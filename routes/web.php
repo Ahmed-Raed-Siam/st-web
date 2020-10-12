@@ -37,11 +37,6 @@ Route::get('users/{id}/comments/{comment}', function ($id, $comment_id) {
     dd('Comment number>' . $comment_id . ' publish by user id:' . $id);
 });
 
-/*Route::get('blog', function () {
-//    dd('blog');
-    return redirect()->route('new_blog');
-});*/
-
 Route::redirect('blog', 'new_blog', '301');
 
 Route::get('new_blog', function () {
@@ -68,6 +63,6 @@ Route::middleware(['checkIP', 'auth'])->group(function () {
 
 Route::middleware('throttle:3,1')->group(function () {
     Route::get('admin', function () {
-        dd('admin dashboard');
+        dd('dashboard');
     });
 });
